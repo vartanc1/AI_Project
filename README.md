@@ -4,9 +4,10 @@
 
 
 ## How to use
-- Need Automatic1111 https://github.com/AUTOMATIC1111/stable-diffusion-webui
-- OPENAI API 
-- Decent GPU to create Images
+- Launch local flask server or host online.
+- Download models from https://civitai.com/models
+- insert your specific openai.api_key into openai.py
+- Generate images with local GPU or cloud GPU.
 
 ## Requirements  
 - Need Automatic1111 https://github.com/AUTOMATIC1111/stable-diffusion-webui
