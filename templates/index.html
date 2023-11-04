@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Image Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src ="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin ="anonymous" ></script>
+    
+</head>
+
+
+
+<body>
+    
+
+    
+    
+    <header>
+        <section id="about-me">
+            <nav>
+                <div class="personal_logo">Vartan Chakryan</div>
+                <a href="/">
+                <h1 class ="personal_logo2">Stable Diffusion Image Generator 📷</h1>
+            </a>
+        
+                <ul class="nav__link--list">
+                    
+        
+                    <li>
+                        <a onclick="Examples_scrolldown()"  class = "
+                        nav__link--anchor link__hover-effect
+                        link__hover-effect--black txt
+                        ">Examples</a>
+                    </li>
+        
+                    <li>
+                        <a onclick = "scrolldown()" class = "
+                        nav__link--anchor
+                        nav__link--anchor--primary
+                        ">About</a>
+                    </li>
+
+                        <img src="{{url_for('static', filename='moon.png')}}" id ="icon"alt="" onclick="darkmode()">
+                        
+                    
+                    </li>
+        
+                </ul>
+            </nav>
+    </header>
+
+
+    <script>
+        function scrolldown(){
+            const element = document.getElementById("about-section");
+            element.scrollIntoView();
+            
+        }
+
+        function Examples_scrolldown(){
+            const element2 = document.getElementById("examples-section");
+            element2.scrollIntoView();
+            
+        }
+
+    </script>
+
+
+     
+
+    <section class ="images-section">
+        
+        <a href="static/output.png"target="_blank" class="image-container" data-lightbox="output">
+            
+            <img src="{{url_for('static', filename='output.png')}}" class="image-1 zoom"filename ="user_image"  align="middle" oninput="reload()" />
+        
+            
+        </a>
+        
+
+        
+
+    
+
+    <div class="input-container ">
+        <form action="{{ url_for("gfg")}}" method="post" >
+        <textarea  type="text" name = "message" id = "prompt" placeholder ="Enter prompt here(please be descriptive!)" cols="30" rows="10" class ="submit--bar"></textarea>
+        
+
+   
+        <button href ="/" class ="button" id ="btn"onclick="">
+    <img  src="{{url_for('static', filename='arrow.png')}}" type = "submit"class ="button_in" onclick="">
+</button>
+    </form>
+    </div>
+
+
+     <script> 
+        // document.getElementById('prompt').onkeypress=function(e){
+        //     if(e.keyCode==13){
+        //         document.getElementById("btn").click();
+
+        //     }
+        // }
+    </script>
+
+    
+<!-- Examples Section -->
+</section class = "examples-section">
+
+
+    <div class = "examples-section-outer" id = "examples-section-outer">
+    <section class="examples-section" id="examples-section">
+        <h2>Examples</h2>
+
+
+        <h1 class ="about-title" id = "about-title">Stable diffusion project</h1>
+
+        <div class="gallery"id="gallery">
+            <img src="{{url_for('static', filename='batman.png')}}" alt="" id ="gallery-1">
+            
+            <img src="{{url_for('static', filename='example-arrow-right.png')}}" onclick ="image_move()" alt="" class ="example-arrow-right zoom">
+            <img src="{{url_for('static', filename='example-arrow-left.png')}}" onclick ="image_move_left()"alt="" class ="example-arrow-left zoom">
+
+            
+            
+        </div>
+
+
+        
+
+
+        
+
+    </div>
+    </section>
+
+    <script>
+        let number = 0;
+        function image_move(){
+            number+=1;
+            console.log(number);
+
+            if(number > 8){
+                number = 8;
+            }
+
+            if(number == 1){
+                document.getElementById("gallery-1").src = "{{url_for('static', filename='output1.png')}}";
+            }
+            else if(number == 2){
+                document.getElementById("gallery-1").src = "{{url_for('static', filename='output2.png')}}"
+            }
+            else if(number == 3){
+                document.getElementById("gallery-1").src = "{{url_for('static', filename='output3.png')}}"
+            }
+            else if(number == 4){
+                document.getElementById("gallery-1").src = "{{url_for('static', filename='output4.png')}}"
+            }
+            else if(number == 5){
+                document.getElementById("gallery-1").src = "{{url_for('static', filename='output5.png')}}"
+            }
+            else if(number == 6){
+                document.getElementById("gallery-1").src = "{{url_for('static', filename='output6.png')}}"
+            }
+            else if(number == 7){
+                document.getElementById("gallery-1").src = "{{url_for('static', filename='output7.png')}}"
+            }
+            else if(number == 8){
+                document.getElementById("gallery-1").src = "{{url_for('static', filename='output8.png')}}"
+            }
+
+        }
+
+        function image_move_left(){
+            number -=1;
+
+            if(number < 0){
+                number = 0;
+            }
+
+            if(number == 1){
+                document.getElementById("gallery-1").src = "{{url_for('static', filename='output1.png')}}";
+            }
+            else if(number == 2){
+                document.getElementById("gallery-1").src = "{{url_for('static', filename='output2.png')}}"
+            }
+            else if(number == 3){
+                document.getElementById("gallery-1").src = "{{url_for('static', filename='output3.png')}}"
+            }
+            else if(number == 4){
+                document.getElementById("gallery-1").src = "{{url_for('static', filename='output4.png')}}"
+            }
+            else if(number == 5){
+                document.getElementById("gallery-1").src = "{{url_for('static', filename='output5.png')}}"
+            }
+            else if(number == 6){
+                document.getElementById("gallery-1").src = "{{url_for('static', filename='output6.png')}}"
+            }
+            else if(number == 7){
+                document.getElementById("gallery-1").src = "{{url_for('static', filename='output7.png')}}"
+            }
+            else if(number == 8){
+                document.getElementById("gallery-1").src = "{{url_for('static', filename='output8.png')}}"
+            }
+            
+            console.log(number);
+        }
+    </script>
+    
+
+
+
+    <!-- About section -->
+</section>
+
+
+<div class = "about-section-outer" id = "about-section-outer">
+<section class="about-section" id="about-section">
+    <h2>About</h2>
+
+
+    <h1 class ="about-title" id = "about-title">Stable diffusion project</h1>
+    <img src="{{url_for('static', filename='output8.png')}}" alt="" class="image-2 zoom">
+
+
+    <div class = "about-text">
+        
+        My inspiration for this project came to mind while experimenting with stable diffusion. I was inspired to create an online image generator for fun. As I built the project, I realized that most people wouldn't be very descriptive when entering a prompt, which would lead to low-quality images. So, I ended up using OpenAI's GPT-3.5 turbo API to enhance the user's prompt and generate more in-depth descriptions. I learned a lot from this project and am looking forward to working on new projects in the near future.
+
+        
+    </div>
+
+    
+    
+    
+
+</div>
+</section>
+
+
+    <section class="bottom-section">
+
+
+        <div class="bottom-logos">
+            <a href="https://www.linkedin.com/in/vartan-chakryan-1b92b7271/" class="logo-class" target ="_blank">
+                <i class ="fab fa-linkedin-in fa-lg"></i>
+            </a>
+
+            <a href="https://github.com/vartanc1" class="logo-class" target ="_blank">
+                <i class ="fab fa-github fa-lg"></i>
+            </a>
+
+            <a href="mailto:vartanchakryan@gmail.com" class="logo-class" target ="_blank">
+                <i class ="far fa-envelope fa-lg"></i>
+            </a>
+
+            <a href="" class="logo-class" target ="_blank">
+                <i class ="fas fa-file-pdf fa-lg"></i>
+            </a>
+
+
+        </div>
+    </section>
+    
+
+    <script>
+        var currentTheme;
+        var val;
+
+        function darkmode(){
+    
+    let toggle = document.body.classList.toggle('dark-mode');
+    if (toggle == true) {
+        document.getElementById("icon").src = "{{url_for('static', filename='sun.png')}}"
+        currentTheme = 'dark';
+
+
+
+    }
+    else {
+        document.getElementById("icon").src = "{{url_for('static', filename='moon.png')}}"
+        currentTheme = 'light';
+    }
+
+    // save to localStorage
+    localStorage.setItem("darkMode",toggle);
+    localStorage.setItem("Theme",currentTheme);
+
+    
+}
+    </script>
+
+
+
+
+
+<script type = "module">
+
+
+    if(localStorage.getItem("darkMode") == 'true'){
+        document.getElementById("icon").src = "{{url_for('static', filename='sun.png')}}"
+        
+
+        
+        document.body.classList.add("dark-mode");
+        
+    }
+    else{
+        document.getElementById("icon").src = "{{url_for('static', filename='moon.png')}}"
+
+
+        document.body.classList.remove('dark-mode');
+    }
+</script>
+
+
+    
+      
+    
+</body>
+
+</html>
